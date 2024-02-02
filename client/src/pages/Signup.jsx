@@ -23,17 +23,21 @@ const Signup = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
+     
       const data=await res.json()
+      
       if (data.success === false) {
-        return setErrorMessage(data.message);
+        setLoading(false)
+        return setErrorMessage("User exists");
       }
-      setLoading(false)
+     
       if(res.ok){
         navigate('/sign-in')
       }
      } catch (error) {
-        setErrorMessage(error.message)
         setLoading(false)
+        setErrorMessage(error.message)
+        
      }
   }
 
@@ -80,7 +84,7 @@ const Signup = () => {
               <Label value='Your password' />
               <TextInput
                 type='password'
-                placeholder='Password'
+                placeholder='******'
                 id='password'
                 onChange={handleChange}
               />
