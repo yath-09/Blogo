@@ -1,6 +1,7 @@
 import {Link, useNavigate} from "react-router-dom" 
 import { Alert, Button, Label, TextInput,Spinner } from 'flowbite-react';
 import { useState } from "react";
+import OAuth from "../Components/OAuth";
 const Signup = () => {
   const [formData,setFormData]=useState({});
   const [errorMessage, setErrorMessage] = useState(null);
@@ -48,9 +49,8 @@ const Signup = () => {
         <div className='flex-1'>
           <Link to='/' className='font-bold dark:text-white text-4xl'>
             <span className='px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white'>
-             Yatharth's
+             Blogo
             </span>
-            Blog
           </Link>
           <p className='text-sm mt-5'>
             This is a demo project. You can sign up with your email and password
@@ -103,10 +103,11 @@ const Signup = () => {
                 'Sign Up'
               )}
             </Button>
+            <OAuth/>
             
           </form>
           <div className='flex gap-2 text-sm mt-5'>
-            <span>Have an account?</span>
+            <span>Already Have an account?</span>
             <Link to='/sign-in' className='text-blue-500'>
               Sign In
             </Link>
