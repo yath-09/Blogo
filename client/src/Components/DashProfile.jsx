@@ -99,7 +99,7 @@ export default function DashProfile() {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-        },
+         },
         body: JSON.stringify(formData),
       });
       const data = await res.json(); 
@@ -139,6 +139,10 @@ export default function DashProfile() {
     try {
       const res = await fetch('http://localhost:3000/api/user/signout', {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          
+        },
       });
       // console.log('Hello');
       const data = await res.json();

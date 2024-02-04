@@ -61,8 +61,9 @@ export const deleteUser=async(req,res,next)=>{
   }
   try {
     await User.findByIdAndDelete(req.params.userId)
-    res.status(200,json({message:"User deleted"}))
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173').status(200,json({message:"User deleted"}))
   } catch (error) {
+    
      next(error)
   }
 }
@@ -71,6 +72,7 @@ export const signout = (req, res, next) => {
     res
       .clearCookie('access_token')
       .status(200)
+      .header('Access-Control-Allow-Origin', 'http://localhost:5173')
       .json('User has been signed out');
   } catch (error) {
     next(error);
