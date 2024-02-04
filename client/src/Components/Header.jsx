@@ -1,5 +1,5 @@
 import {Avatar, Button, Dropdown, Navbar, TextInput} from 'flowbite-react'
-import { Link ,useLocation} from 'react-router-dom'
+import { Link ,Navigate,useLocation} from 'react-router-dom'
 import {AiOutlineSearch} from "react-icons/ai"
 import {FaMoon,FaSun} from "react-icons/fa"
 import { useSelector,useDispatch } from 'react-redux'
@@ -34,7 +34,7 @@ const Header = () => {
         }}>
           {theme==='light' ?   <FaSun />:<FaMoon />}
         </Button>
-        <Link to="sign-in">
+        
           {currentUser ? (
             <Dropdown className='' arrowIcon={false} inline label={
               <Avatar alt='user' img={currentUser.profilePicture} rounded />
@@ -52,12 +52,11 @@ const Header = () => {
             </Dropdown.Item>
             </Dropdown>
           ):(
-            <Button gradientDuoTone='purpleToBlue'>
-            Sign-in
-          </Button>
+            Navigate("/sign-in")
+            
           )}
           
-        </Link>
+      
         <Navbar.Toggle/>
       </div>
       <Navbar.Collapse>
