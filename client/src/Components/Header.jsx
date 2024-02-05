@@ -4,18 +4,41 @@ import {AiOutlineSearch} from "react-icons/ai"
 import {FaMoon,FaSun} from "react-icons/fa"
 import { useSelector,useDispatch } from 'react-redux'
 import { toggleTheme } from '../redux/theme/themeSlice'
+import { signoutSuccess } from '../redux/user/userSlice'
 const Header = () => {
   const path=useLocation().pathname;
   const {currentUser}=useSelector(state=>state.user)
   const {theme}=useSelector(state=>state.theme)
   const dispatch=useDispatch();
+  const handleSignout = async () => {
+    try {
+      const res = await fetch('http://localhost:3000/api/user/signout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          
+        },
+      });
+      // console.log('Hello');
+      const data = await res.json();
+      if (!res.ok) {
+        console.log(data.message);
+      }
+      else{
+        dispatch(signoutSuccess());
+      }
+      Navigate("/sign-in")
+    }
+    catch(error){
+      console.log(error.message);
+    }
+  }
+
   return (
     //bg-gradient-to-r from-indigo-300 via-pink-200 to-purple-200
     <Navbar className='border-b-2 '>
       <Link to="/" className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white'>
         <span className='px-2 py-1 rounded-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white'>Blogo</span>
-
-
       </Link>
       <form>
         <TextInput 
@@ -48,12 +71,17 @@ const Header = () => {
             </Link>
             <Dropdown.Divider/>
             <Dropdown.Item>
+            <span  onClick={handleSignout}>
               Sign Out
+            </span>  
             </Dropdown.Item>
             </Dropdown>
           ):(
-            Navigate("/sign-in")
-            
+            <Link to='/sign-in'>
+            <Button gradientDuoTone='purpleToBlue' outline>
+              Sign In
+            </Button>
+          </Link>
           )}
           
       

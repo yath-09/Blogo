@@ -6,6 +6,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import { app } from '../firebase';
 import { updateSuccess,updateFailure,updateStart,  deleteUserStart,deleteUserSuccess,deleteUserFailure, signoutSuccess} from '../redux/user/userSlice'
 import { useDispatch } from 'react-redux';
+import {Link} from 'react-router-dom'
 import {
   getDownloadURL,
   getStorage,
@@ -212,6 +213,14 @@ export default function DashProfile() {
         <Button type='submit' gradientDuoTone='purpleToBlue' outline>
             Update
         </Button>
+        {currentUser.isAdmin &&(
+          <Link to={'/create-post'}>
+            <Button type='button' gradientDuoTone='purpleToPink' className='w-full'>Create a post</Button>
+          </Link>
+          
+        )}
+
+        
       </form>
       <div className="text-red-500 flex justify-between mt-5">
         <span onClick={()=>setShowModal(true)}className='cursor-pointer'>Delete Account</span>
