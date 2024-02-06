@@ -1,8 +1,14 @@
-import React from 'react'
+import { useSelector } from "react-redux"
+import {Navigate } from "react-router-dom"
 
 const Home = () => {
+const currentUser=useSelector(state=>state.user)
   return (
-    <div>Home</div>
+     currentUser? ( 
+         <div>Home</div>
+     )
+    : (<Navigate to='/sign-in'/>)
+   
   )
 }
 

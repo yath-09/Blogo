@@ -12,26 +12,29 @@ import OnlyAdminPrivateRoute from "./Components/OnlyAdminPrivateRoute"
 import CreatePost from "./pages/CreatePost"
 import UpdatePost from "./pages/UpdatePost"
 import PostPage from "./pages/PostPage"
+import ScrollToTop from "./Components/ScrollToTop"
 
 function App() {
   return (
     <>
     <BrowserRouter>
+      <ScrollToTop/>
       <Header/>
       <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/sign-in" element={<Signin/>}/>
-        <Route path="/about" element={<About/>}/>
-        <Route path="/sign-up" element={<Signup/>}/>
-        <Route element={<PrivateRoute/>}>
-          <Route path="/dashboard" element={<Dashboard/>}/>
-        </Route>
-        <Route element={<OnlyAdminPrivateRoute/>}>
-          <Route path="/create-post" element={<CreatePost/>}/>
-          <Route path='/update-post/:postId' element={<UpdatePost />} />
-        </Route>
-        <Route path="/projects" element={<Project/>}/>
-        <Route path="/post/:postSlug" element={<PostPage/>}/>
+          <Route path="/sign-in" element={<Signin/>}/>
+          <Route path="/sign-up" element={<Signup/>}/>
+          <Route element={<PrivateRoute/>}>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/about" element={<About/>}/>
+            <Route path="/dashboard" element={<Dashboard/>}/>
+            <Route path="/projects" element={<Project/>}/>
+            <Route path="/post/:postSlug" element={<PostPage/>}/>
+
+            <Route element={<OnlyAdminPrivateRoute/>}>
+              <Route path="/create-post" element={<CreatePost/>}/>
+              <Route path='/update-post/:postId' element={<UpdatePost />} />
+            </Route>   
+          </Route>
       </Routes>
       <Footer/>
     </BrowserRouter>
