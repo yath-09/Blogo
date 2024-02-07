@@ -1,4 +1,4 @@
-import {HiArrowSmRight,HiDocumentText, HiUser,HiOutlineUserGroup} from 'react-icons/hi'
+import {HiArrowSmRight,HiDocumentText, HiUser,HiOutlineUserGroup,HiAnnotation} from 'react-icons/hi'
 import {Sidebar} from 'flowbite-react'
 import { useEffect, useState } from 'react';
 import {useLocation} from 'react-router-dom'
@@ -62,6 +62,16 @@ const DashSidebar = () => {
                     </Sidebar.Item>
                </Link>
              )}
+           
+              <Link to='/dashboard?tab=comments'>
+                <Sidebar.Item
+                  active={tab === 'comments'}
+                  icon={HiAnnotation}
+                  as='div'
+                >
+                  Comments
+                </Sidebar.Item>
+              </Link>
 
 
              <Sidebar.Item  icon={HiArrowSmRight} className='cursor-pointer'>
