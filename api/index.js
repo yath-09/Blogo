@@ -7,13 +7,14 @@ import cookieParser from "cookie-parser";
 import cors from 'cors';
 import postRoutes from './routes/post.route.js';
 import commentRoutes from './routes/comment.route.js';
-
+import path from 'path'
 dotenv.config()
+const __dirname = path.resolve();
+
 const app=express()
 // Use the cors middleware to handle CORS globally
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json())
-
 app.use(cookieParser())
 
 
@@ -34,7 +35,12 @@ mongoose
   app.use('/api/auth',authRoutes)
   app.use('/api/post', postRoutes);
   app.use('/api/comment',commentRoutes)
-
+  
+  app.use(express.static(path.join(__dirname, '/client/dist')));
+  // for deployement
+  app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+  });
 
   app.use((err,req,res,next)=>{
     const statusCode=err.statusCode || 500;
