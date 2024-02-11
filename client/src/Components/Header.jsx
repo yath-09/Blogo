@@ -91,7 +91,7 @@ const Header = () => {
               <span className='block text-sm truncate font-medium'>{currentUser.email}</span>
             </Dropdown.Header>
             <Link to={'/dashboard?tab=profile'}>
-              <Dropdown.Item>Profile</Dropdown.Item>
+            <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
             <Dropdown.Divider/>
             <Dropdown.Item>
@@ -118,8 +118,8 @@ const Header = () => {
           <Navbar.Link active={path==="/about"} as={'div'}>
             <Link to='/about'>About</Link>
           </Navbar.Link>
-          <Navbar.Link active={path==="/projects"} as={'div'}>
-            <Link to='/projects' >Projects</Link>
+          <Navbar.Link active={path==="/dashboard?tab=profile"} as={'div'}>
+            <Link to='/dashboard?tab=profile' >Profile</Link>
           </Navbar.Link>
         </Navbar.Collapse>
 
