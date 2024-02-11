@@ -13,6 +13,7 @@ import CreatePost from "./pages/CreatePost"
 import UpdatePost from "./pages/UpdatePost"
 import PostPage from "./pages/PostPage"
 import ScrollToTop from "./Components/ScrollToTop"
+import Search from "./pages/Search"
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard/>}/>
             <Route path="/projects" element={<Project/>}/>
             <Route path="/post/:postSlug" element={<PostPage/>}/>
-
+            <Route path="/search" element={<Search/>}/>
             <Route element={<OnlyAdminPrivateRoute/>}>
               <Route path="/create-post" element={<CreatePost/>}/>
               <Route path='/update-post/:postId' element={<UpdatePost />} />
