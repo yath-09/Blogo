@@ -1,4 +1,4 @@
-import {HiArrowSmRight,HiDocumentText, HiUser,HiOutlineUserGroup,HiAnnotation} from 'react-icons/hi'
+import {HiArrowSmRight,HiDocumentText, HiUser,HiOutlineUserGroup,HiAnnotation, HiChartPie} from 'react-icons/hi'
 import {Sidebar} from 'flowbite-react'
 import { useEffect, useState } from 'react';
 import {useLocation} from 'react-router-dom'
@@ -43,6 +43,20 @@ const DashSidebar = () => {
                   Profile
               </Sidebar.Item>
              </Link>
+
+
+             {currentUser && currentUser.isAdmin && <Link to={'/dashboard?tab=dash'}>
+                <Sidebar.Item 
+                active={tab==='dash' || !tab}
+                icon={HiChartPie}
+                as='div'>
+                  Dashboard
+                </Sidebar.Item>
+                </Link>
+             }  
+
+
+
               {currentUser && currentUser.isAdmin && <Link to={'/dashboard?tab=posts'}>
                 <Sidebar.Item 
                 active={tab==='posts'}
