@@ -1,7 +1,7 @@
 import { Link,Navigate } from 'react-router-dom';
 import CallToAction from "../Components/CallToAction";
 import { useEffect, useState } from 'react';
-import PostCard from '../components/PostCard';
+import PostCard from '../Components/PostCard';
 import { useSelector } from "react-redux"
 export default function Home() {
   const [posts, setPosts] = useState([]);
