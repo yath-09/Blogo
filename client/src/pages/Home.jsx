@@ -1,5 +1,5 @@
 import { Link,Navigate } from 'react-router-dom';
-import CallToAction from '../components/CallToAction';
+import CallToAction from '../components/CallToAction.jsx';
 import { useEffect, useState } from 'react';
 import PostCard from '../components/PostCard';
 import { useSelector } from "react-redux"
