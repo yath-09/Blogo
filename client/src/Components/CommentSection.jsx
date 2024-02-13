@@ -8,6 +8,7 @@ export default function CommentSection({ postId }) {
   const [comment, setComment] = useState('');
   const [commentError, setCommentError] = useState(null);
   const [comments, setComments] = useState([]);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (comment.length > 200) {
@@ -53,6 +54,7 @@ export default function CommentSection({ postId }) {
   }, [postId]);
 
   const navigate=useNavigate()
+  
   const handleLike = async (commentId) => {
     try {
       if (!currentUser) {
