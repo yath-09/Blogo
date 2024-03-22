@@ -43,8 +43,6 @@ const DashSidebar = () => {
                   Profile
               </Sidebar.Item>
              </Link>
-
-
              {currentUser && currentUser.isAdmin && <Link to={'/dashboard?tab=dash'}>
                 <Sidebar.Item 
                 active={tab==='dash' || !tab}
@@ -53,10 +51,7 @@ const DashSidebar = () => {
                   Dashboard
                 </Sidebar.Item>
                 </Link>
-             }  
-
-
-
+             }
               {currentUser && currentUser.isAdmin && <Link to={'/dashboard?tab=posts'}>
                 <Sidebar.Item 
                 active={tab==='posts'}
@@ -66,16 +61,16 @@ const DashSidebar = () => {
                 </Sidebar.Item>
                 </Link>
              }
-             {currentUser.isAdmin &&( 
-               <Link to={'/dashboard?tab=users'}>
-                    <Sidebar.Item 
-                      active={tab==='users'}
-                      icon={HiOutlineUserGroup}
-                      as='div'>
-                      Users
-                    </Sidebar.Item>
-               </Link>
-             )}
+             
+              <Link to={'/dashboard?tab=users'}>
+                  <Sidebar.Item 
+                    active={tab==='users'}
+                    icon={HiOutlineUserGroup}
+                    as='div'>
+                    Users
+                  </Sidebar.Item>
+              </Link>
+            
            
               <Link to='/dashboard?tab=comments'>
                 <Sidebar.Item

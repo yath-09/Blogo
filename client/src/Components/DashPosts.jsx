@@ -131,7 +131,7 @@ const DashPosts = () => {
           {showMore && <button onClick={handleShowMore} className='w-full text-teal-500 self-center text-sm py-7'>Show More</button>}
         </>
       ) : (
-        <p>You have no posts yet!</p>
+        currentUser.isAdmin && (<p>You have no posts yet!</p>)
       )}
       <Modal
         show={showModal}
