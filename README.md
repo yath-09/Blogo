@@ -1,4 +1,4 @@
-**LIVE :**  https://mblogo.onrender.com/
+**LIVE :**  https://blogo-4fx2.onrender.com/
 
 The project is a Blog site where u can post and read blogs.
 Admin have the facilities to see number of posts,comments, users etc whereas users can see the post as well as like the post.
